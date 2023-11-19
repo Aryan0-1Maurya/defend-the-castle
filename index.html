@@ -1,0 +1,250 @@
+<!-- 
+
+      ************************************************************
+
+           ++++++++++++++    --------    +++++++++++++++++
+
+{   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  }
+
+           ++++++++++++++    --------    +++++++++++++++++
+
+      ************************************************************
+ -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Defend The Castle!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="author" content="Aryan Maurya" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+    <meta
+      name="description"
+      content="This is online defend castle game build for your imporove thing skill in this domain by aryan maurya enjoy your game"
+    />
+    <meta
+      name="keywords"
+      content="defent,defent castle,castle defemnd,defend castle war,castle game,castle defend,defing the castle,war of emoji ,defent the castle,castle defend ,defind castle, other game,color poly green shok,online dino game by aryan , aryan sir, aryan sir game"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.3/jquery-confirm.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.3/jquery-confirm.min.js"></script>
+    <link
+      href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+      rel="stylesheet"
+    />
+    <!-- THIS MODULE SCRIPT MUST BE BELOW THE OTHER SCRIPTS (firebase.js,jquery,...) -->
+    <script src="https://cdn.rawgit.com/bureyburey/Scoreboard-Module/master/scoreboard.js"></script>
+    <script src="https://cdn.rawgit.com/bureyburey/Scoreboard-Module/master/scoreboard_capped.js"></script>
+    <script src="https://cdn.rawgit.com/bureyburey/Explosion/master/explosion.pr.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="aryan_maurya.js" defer></script>
+  </head>
+  <body>
+    <center>
+      <div id="top-message">
+        <span style="color: white; margin: 3px; display: block"
+          ><h3 style="display: inline">AmsR-Game Hub</h3>
+          &lt;by amsr&gt;</span
+        >
+        <a
+          href="https://www.pjgalbraith.com/drawing-animated-curves-javascript/"
+          >Original Bezier Curve Animation Source Code</a
+        >
+      </div>
+      <audio controls loop id="audio-player">
+        <source
+          src="https://freemusicarchive.org/file/music/no_curator/Starbox/Bit_Bops/Starbox_-_05_-_Digital_Dream_Azureflux_Remix.mp3"
+          type="audio/mpeg"
+        />
+        <source
+          src="https://freemusicarchive.org/file/music/no_curator/Kero_Kero_Bonito/Bit_Bops/Kero_Kero_Bonito_-_04_-_Flamingo_Azureflux_Remix.mp3"
+          type="audio/mpeg"
+        />
+      </audio>
+      <canvas width="450px" height="450px" id="canvas"></canvas>
+      <button class="btn-primary" id="btnNew">New Game</button>
+
+      <select class="btn-primary" id="selectDiff">
+        <option value="1">Easy</option>
+        <option value="2" selected>Normal</option>
+        <option value="3">Hard</option>
+        <option value="4">eXtreme</option>
+        <option value="5">1ns4n3!</option>
+      </select>
+
+      <button class="btn-primary" id="btnShowScore">Scoreboard</button>
+      <button class="btn-primary" id="btnPause">Pause</button>
+      <button style="border-radius: 30%" class="btn-danger" id="randCanvasCol">
+        <b>¿</b>
+      </button>
+    </center>
+    <script>
+      var options = {
+        // customize the following:
+        // syntax is like css, but make sure:
+        // key and value are both strings!
+        scoreboardWidth: "90%", //recommended
+        scoreboardHeight: "450", // recommended
+        submitDialogWidth: "auto", //recommended
+        submitDialogHeight: "auto", // recommended
+        burey: {
+          // Scoreboard Module By Burey text
+          "font-family": "Times New Roman",
+          "font-style": "italic",
+          "text-align": "center",
+          "box-shadow": "0px 0px 3px #7710ff, inset 0px 0px 5px 1px black",
+          "text-shadow": "5px 2px 4px grey",
+          color: "#9910ff",
+          "background-color": "white",
+          "border-radius": "25px",
+        },
+        dialogTitle: {
+          // dialogs title bar
+          "box-shadow": "0px 0px 3px #7710ff, inset 0px 0px 5px 1px white",
+          "text-shadow": "0px 0px 1px #e0d0ff",
+          border: "1px solid #7710bb",
+          "border-radius": "2%",
+          "font-family": "Times New Roman",
+          "text-align": "center",
+          background: "black",
+          color: "#9910ff",
+        },
+        scoreboardContainer: {
+          // scoreboard container dialog
+          border: "1px solid grey",
+          //"border-radius":"1%",
+          "box-shadow": "0px 0px 3px #7710ff, inset 0px 0px 5px 1px white",
+          "background-color": "black",
+        },
+        tableHeader: {
+          // # Name Score Time
+          "border-radius": "10px",
+          "font-family": "Times New Roman",
+          "text-align": "center",
+          border: "1px solid #7710bb",
+          "box-shadow": "0px 0px 2px #9910ff, inset 0px 0px 3px white",
+          "text-shadow": "0px 0px 1px #e0d0ff",
+          color: "#9910ff",
+        },
+        scorePosition: {
+          // #
+          "font-family": "Times New Roman",
+          color: "#9910ff",
+        },
+        scoreName: {
+          // name of user
+          "font-family": "Times New Roman",
+          color: "#9910ff",
+          "word-wrap": "break-word",
+          "max-width": "110px",
+          padding: "3px",
+          "font-size": "13px",
+        },
+        scoreValue: {
+          // score value
+          "font-family": "Times New Roman",
+          "font-size": "15px",
+          color: "#9910ff",
+          padding: "3px",
+        },
+        scoreTime: {
+          // time + date
+          "font-family": "Times New Roman",
+          "font-size": "12px",
+          color: "#9910ff",
+          padding: "3px",
+        },
+        newScoreContainer: {
+          // submit new score dialog
+          "background-color": "black",
+        },
+        scoreYourScoreLabel: {
+          // 'Your Score:' text in new score dialog
+          "font-family": "Times New Roman",
+          color: "#9910ff",
+        },
+        scoreValueLabel: {
+          // score value in new score dialog
+          "font-family": "Times New Roman",
+          color: "#9910ff",
+          "margin-right": "25px",
+        },
+        scoreErrorLabel: {
+          // error label in new score dialog
+          "font-family": "Times New Roman",
+          color: "red",
+        },
+        scoreboardButtons: {
+          // scoreboard dialog buttons
+          "font-family": "Times New Roman",
+          "text-shadow": "5px 2px 4px grey",
+          background: "black",
+          color: "#9910ff",
+          display: "block", // remove button
+        },
+        newScoreButtons: {
+          // new score dialog buttons
+          "font-family": "Times New Roman",
+          "text-shadow": "5px 2px 4px grey",
+          background: "black",
+          color: "#9910ff",
+        },
+        dialogButtonPanels: {
+          "font-family": "Times New Roman",
+          "text-shadow": "5px 2px 4px grey",
+          background: "black",
+          color: "#9910ff",
+        },
+        sortDropDownList: {
+          "font-family": "Times New Roman",
+          "font-size": "20px",
+          "margin-left": "5px",
+        },
+        loaderOptions: {
+          // scoreboard loading animation
+          "border-bottom": "25px solid #888" /* Light grey */,
+          "border-top": "25px solid #888" /* Light grey */,
+          "border-right": "25px solid #9910ff",
+          "border-left": "25px solid #9910ff",
+          "margin-left": "auto",
+          "margin-right": "auto",
+        },
+      };
+    </script>
+  </body>
+</html>
+
+<!-- 
+
+      ************************************************************
+
+           ++++++++++++++    --------    +++++++++++++++++
+
+{   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  }
+
+           ++++++++++++++    --------    +++++++++++++++++
+
+      ************************************************************
+ -->
