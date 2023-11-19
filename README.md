@@ -4,7 +4,7 @@ Stand as the last line of defense in Defend the Castle, a thrilling castle defen
 
 ## Play the Game
 
-[Play Now](https://your-username.github.io/defend-the-castle/) 🕹️
+[Play Now](https://aryan0-1maurya.github.io/defend-the-castle/) 🕹️
 
 ## About the Game
 
